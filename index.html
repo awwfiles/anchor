@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Anchor By Awwkwards</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" />
+		<link rel="stylesheet" type="text/css" href="css/playlistBottom_scroll.css" />
+        
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="js/jquery.address.js"></script>
+        <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+        <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+        <script type="text/javascript" src="js/jquery.dotdotdot-1.5.1.js"></script>
+        <script type="text/javascript" src="js/froogaloop2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.vbyv.min.js"></script>
+        <script type="text/javascript">
+					
+			var hap_player;  		
+			jQuery(document).ready(function($) {
+				 var yvgb_settings = {
+					/* componentFixedSize: true/false. Responsive = false, fixed = true */
+					componentFixedSize: false,
+					/* playlistPosition: bottom/right (default thumbnail position) */
+					playlistPosition:'bottom',
+					/* scrollType: buttons / scroll  */
+					scrollType: 'scroll',
+					
+					/* DEEPLINKING SETTINGS */
+				    /* useDeeplink: true, false */
+					useDeeplink:false,
+					/* startUrl: deeplink start url, enter playlist 'div' attribute data-address + video div data-address (two levels). Or just playlist 'div' data-address (single level). */
+					startUrl: 'playlist11/youtube_single1',
+					
+					/* NO DEEPLINKING SETTINGS */
+					/*activePlaylist: enter element 'id' attributte, or leave empty for none like this: activePlaylist:'' */
+					activePlaylist:'playlist12',
+					/*activeItem: video number to start with (-1 = none, 0 = first, 1 = second, 2 = third ...etc) */
+					activeItem:0,
+					
+					/* DEFAULTS */
+					/*defaultVolume: 0-1 */
+					defaultVolume:0.5,
+					/*autoPlay: true/false (video autoplay). Default false on mobile. */
+					autoPlay:true,
+					/* loopingOn: loop playlist on end, true/false */
+					loopingOn:true,
+					/* randomPlay: random play in playlist, true/false */
+					randomPlay:false,
+					/*autoAdvanceToNextVideo: true/false */
+					autoAdvanceToNextVideo:true,
+					/* autoOpenPlaylist: open playlist on start (true/false) */
+					autoOpenPlaylist: true,
+					/* closePlaylistOnVideoSelect: close playlist on video select */
+					closePlaylistOnVideoSelect: false,
+					
+					ytAppId:'AIzaSyDeqvaVCC5GEldPL1uOpI04h9sFoeH7WlY'/* youtube api key: https://developers.google.com/youtube/registering_an_application */
+				
+				}	
+				hap_player = $('#componentWrapper').vbyv(yvgb_settings);
+				
+			 });
+	
+        </script>
+	
+  </head>
+  <body>  
+  
+    	<div id="componentWrapper">
+         
+             <div class="mediaWrapper">
+                 <div class="youtubeHolder"></div>	
+                 <div class="vimeoHolder"></div>
+             </div>
+             
+             <!-- holder for thumbnails (delete this whole div completely to hide the playlist!) -->
+             <div class="thumbHolder">
+             	<div class="playlistControls">
+                	<div class="advance_controls">
+                        <div class="playlist_prev"></div>
+                        <div class="playlist_toggle"></div>
+                        <div class="playlist_next"></div>
+                    </div>
+                    <div class="playlist_switch"></div>
+                </div>	
+           	    <div class="thumbContainer"><div class="thumbInnerContainer"></div></div>	
+                <div class="thumbBackward"></div>	
+            	<div class="thumbForward"></div>	
+             </div>
+              
+          	 <div class="mediaPreloader"></div>
+             
+             <div class="componentPlaylist">
+
+				  <div id='playlist12' data-address="playlist12">
+                     <!-- youtube playlist
+                     data-path: playlist id
+                     data-limit: number of results to retrieve (if not set, all results will be retrieved! Youtube playlist contains maximum of 200 entries.)
+                     -->
+                     <div class="playlistNonSelected" data-address="youtube_playlist" data-type="youtube_playlist" data-path="PLzx3HmrkWaIUVXPQy2w1O764mnv4tc2Y2" data-limit="22" data-sort="relevance" data-quality="hd720"></div>
+                  </div>
+
+            </div> 
+               
+        </div>
+
+      </body>
+</html>
